@@ -1,0 +1,1 @@
+class AccountKeyServiceError < StandardError; end

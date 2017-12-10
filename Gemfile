@@ -18,6 +18,9 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'redis', '~> 3.0'
 # gem 'capistrano-rails', group: :development
 
+gem 'sidekiq'
+gem 'faraday'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'

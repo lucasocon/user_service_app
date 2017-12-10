@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   # GET /users
   def index
-    @users = User.all
+    @users = User.search_by(search_params)
   end
 
   # POST /users
@@ -9,9 +9,9 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render :show, status: :created, location: @user
+      render :show, status: :created
     else
-      render json: { errors:  @user.errors }, status: :unprocessable_entity
+      render json: { errors:  @user.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

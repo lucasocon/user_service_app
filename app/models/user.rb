@@ -9,5 +9,15 @@ class User < ApplicationRecord
   validates_presence_of :email, :phone_number
   validates_presence_of :password, on: :create
   validates_presence_of :password_digest, on: :update
-  validates_uniqueness_of :email, :phone_number, :key, :account_key
+  validates_uniqueness_of :email, :phone_number, :key, :account_key, allow_nil: true
+
+  after_create :enqueue_account_key
+
+  scope :search_by, -> (search_params) { where(search_params).order(created_at: :desc) }
+
+  private
+
+  def enqueue_account_key
+    GetAccountKeyJob.perform_later(self)
+  end
 end
