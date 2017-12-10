@@ -1,24 +1,19 @@
-# README
+# User service app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+```bash
+bin/setup
+```
 
-* Ruby version
+# Run Rails & Sidekiq concurrently (using the foreman gem)
 
-* System dependencies
+```bash
+foreman start
+```
 
-* Configuration
+#### Install Postgresql on Mac
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+https://www.codementor.io/devops/tutorial/getting-started-postgresql-server-mac-osx
+```
